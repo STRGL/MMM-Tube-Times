@@ -1,0 +1,45 @@
+  <div id="MMM-TubeTimes">
+      <header class="{{ tubeStatus }}">
+        <h3 class="title">{{ line | capitalize }}
+        {% if tubeStatus !== "good" %}
+         <span class="status-description"> ({{ tubeStatusDescription }})</span>
+         {% endif %}
+         </h3>
+        {% if tubeStatus !== "good" %}
+          <span class="status {{ tubeStatus }}">&#9888;</span>
+        {% endif %}
+      </header>
+    <table id="departure_board">
+        {% if journeys.length > 0 %}
+          {% for journey in journeys %}
+            <tr class="table_row">
+            <th class="destination">{{ journey.destinationName | removeStationSuffix }}</th>
+            <td class="arriving">
+              <p class="time-estimate">{{ journey.expectedArrival | getMinutesToDate }}</p>
+              <p class="time">({{ journey.expectedArrival | formatTime }})</p>
+            </td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr class="table_row">
+            <td colspan="2" class="no-trains">
+              {% if loaded %}
+                No trains available.
+              {% else %}
+                Loading...
+              {% endif %}
+            </td>
+          </tr>
+        {% endif %}
+    </table>
+    <div class="status-messages">
+    {% if statusMessages.length > 0 %}
+      <span class="status-message">
+      {{ statusMessages[activeMessage].text | truncateAtSentence(200) }}
+      {% if statusMessages.length > 1 %}
+        ({{activeMessage + 1}}/{{statusMessages.length}})
+      {% endif %}
+      </span>
+    {% endif %}
+    </div>
+  </div>

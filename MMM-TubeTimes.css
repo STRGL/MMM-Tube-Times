@@ -1,0 +1,87 @@
+
+#MMM-TubeTimes {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+#MMM-TubeTimes header {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  align-items: center;
+  padding: 8px;
+  padding-left: 0;
+}
+
+#MMM-TubeTimes header .status-description {
+  font-size: 0.8em;
+  color: #666;
+}
+
+#MMM-TubeTimes header .status {
+  font-size: 1.5em;
+  vertical-align: middle;
+
+  &.warning {
+    color: orange
+  }
+
+  &.severe {
+    color: red
+  }
+}
+
+#MMM-TubeTimes header {
+  &.good {
+    border-color: green
+  }
+  &.warning {
+    border-color: orange
+  }
+  &.severe {
+    border-color: red
+  }
+}
+
+#departure_board .table_row {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#departure_board .destination {
+  grid-area: destination;
+  text-align: left;
+}
+
+#departure_board .arriving {
+  grid-area: arriving
+}
+
+#departure_board .arriving  p {
+  display: inline
+}
+
+#departure_board .time {
+  grid-area: time;
+  text-align: right;
+  margin-left: 8px;
+}
+
+
+#MMM-TubeTimes .status-messages {
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 10px;
+  text-align: left;
+
+  .status-message {
+    margin-top: 5px;
+  }
+
+  .status-description {
+    margin-bottom: 5px;
+  }
+}
+
